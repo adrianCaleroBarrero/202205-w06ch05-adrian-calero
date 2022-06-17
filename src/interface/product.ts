@@ -1,3 +1,8 @@
+export enum type {
+  "camisetas" = "camisetas",
+  "zapatillas" = "zapatillas",
+}
+
 export interface iProduct {
   id?: number;
   name: string;
@@ -5,6 +10,6 @@ export interface iProduct {
   price: number;
   detail: string;
   stock: number;
-  type: string;
+  type: type;
   discount: boolean;
 }
