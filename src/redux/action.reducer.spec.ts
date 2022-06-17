@@ -1,4 +1,5 @@
-import { iProduct } from "../interface/product";
+import { AnyAction } from "@reduxjs/toolkit";
+import { iProduct, type } from "../interface/product";
 import * as ac from "./action.creators";
 import { productReducer } from "./action.reducer";
 
@@ -10,7 +11,7 @@ describe("Given the reducer", () => {
     price: 120,
     detail: "lorem",
     stock: 80,
-    type: "shoes",
+    type: type.zapatillas,
     discount: false,
   };
 
@@ -61,6 +62,15 @@ describe("Given the reducer", () => {
       );
 
       expect(newState).toHaveLength(0);
+    });
+  });
+  describe("When i use the function for default", () => {
+    test("Then it should be rthe same mock", () => {
+      const initialState: Array<iProduct> = [mockProduct];
+      const noAction = {} as AnyAction;
+      const newState = productReducer(initialState, noAction);
+
+      expect(newState).toEqual(initialState);
     });
   });
 });
