@@ -1,4 +1,3 @@
-import { mockComponent } from "react-dom/test-utils";
 import { iProduct } from "../interface/product";
 import * as ac from "./action.creators";
 import { productReducer } from "./action.reducer";
