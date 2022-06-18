@@ -19,6 +19,36 @@
       "stock": 150,
       "type": "camisetas",
       "discount": true
+    },
+    {
+      "name": "camiseta de tirantes",
+      "brand": "adidas",
+      "price": "20",
+      "detail": "Camiseta a rallas ha dos tonalidades",
+      "stock": "265",
+      "type": "camisetas",
+      "discount": "on",
+      "id": 81950
+    },
+    {
+      "name": "deportivas",
+      "brand": "newbalance",
+      "price": "150",
+      "detail": "Sckechers de color gris y crema.",
+      "stock": "80",
+      "type": "zapatillas",
+      "discount": "on",
+      "id": 29080
+    },
+    {
+      "name": "pegasus",
+      "brand": "nike",
+      "price": "140",
+      "detail": "Zapatilla de running ligera y ultracomoda",
+      "stock": "200",
+      "type": "zapatillas",
+      "discount": false,
+      "id": 86018
     }
   ]
 }
