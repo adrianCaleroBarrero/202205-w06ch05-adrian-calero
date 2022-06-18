@@ -1,3 +1,5 @@
+import "./home.page.css";
+
 export function HomePage() {
   return (
     <>
@@ -21,6 +23,7 @@ export function HomePage() {
         <input type="number" name="stock" id="" placeholder="Stock" />
         <label htmlFor="">¿Descuento?</label>
         <input type="checkbox" name="" id="" />
+        <button type="submit">Crear</button>
       </form>
     </>
   );
