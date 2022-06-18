@@ -1,5 +1,5 @@
 import { AnyAction } from "@reduxjs/toolkit";
-import { iProduct, type } from "../interface/product";
+import { iProduct } from "../interface/product";
 import * as ac from "./action.creators";
 import { productReducer } from "./action.reducer";
 
@@ -11,7 +11,7 @@ describe("Given the reducer", () => {
     price: 120,
     detail: "lorem",
     stock: 80,
-    type: type.zapatillas,
+    type: "zapatillas",
     discount: false,
   };
 

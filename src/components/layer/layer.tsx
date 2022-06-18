@@ -1,5 +1,6 @@
 import React, { ReactElement } from "react";
 import { aMenuItems } from "../../interface/menu";
+import { Footer } from "../footer/footer";
 import { Header } from "../header/header";
 
 export function Layer({
@@ -13,6 +14,7 @@ export function Layer({
     <>
       <Header options={options} />
       <main>{children}</main>
+      <Footer />
     </>
   );
 }
