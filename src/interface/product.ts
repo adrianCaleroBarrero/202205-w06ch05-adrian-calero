@@ -1,6 +1,6 @@
 export enum type {
-  "camisetas",
-  "zapatillas",
+  "camisetas" = "camisetas",
+  "zapatillas" = "zapatillas",
 }
 
 export interface iProduct {
