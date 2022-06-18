@@ -1,4 +1,4 @@
-import { iProduct, type } from "../interface/product";
+import { iProduct } from "../interface/product";
 
 export class ProductModel implements iProduct {
   id: number;
@@ -11,7 +11,7 @@ export class ProductModel implements iProduct {
     public price: number,
     public detail: string,
     public stock: number,
-    public type: type,
+    public type: string,
     public discount: boolean
   ) {
     this.id = ProductModel.generateId();
