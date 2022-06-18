@@ -1,3 +1,24 @@
 {
-  "products": {}
+  "products": [
+    {
+      "id": 1,
+      "name": "zapatilla alta",
+      "brand": "converse",
+      "price": 80,
+      "detail": "Modelo de suela plana, alto por encima del tobillo.",
+      "stock": 20,
+      "type": "zapatillas",
+      "discount": false
+    },
+    {
+      "id": 2,
+      "name": "oversize",
+      "brand": "nike",
+      "price": 30,
+      "detail": "Tallaje ancho, de algodon.",
+      "stock": 150,
+      "type": "camisetas",
+      "discount": true
+    }
+  ]
 }
