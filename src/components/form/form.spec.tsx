@@ -1,6 +1,9 @@
-import { screen } from "@testing-library/react";
+import { fireEvent, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import React from "react";
+import { useState } from "react";
 import { Provider, useDispatch } from "react-redux";
+import { iProduct } from "../../interface/product";
 import { HttpStoreProduct } from "../../services/http.storage";
 import { render } from "../../services/test.utils";
 import { store } from "../../store/store";
@@ -13,19 +16,17 @@ jest.mock("react-redux", () => ({
 
 jest.mock("../../services/http.storage");
 const preloadedState = {
-  tasks: [],
+  products: [],
 };
 
 const useDispatchMock = useDispatch as jest.Mock;
-const mockDispatch = jest.fn();
+const mockDispatch = jest.fn().mockName("mockDispatch");
 
 describe("Given the component Form", () => {
   beforeEach(() => {
     HttpStoreProduct.prototype.addProduct = jest.fn().mockResolvedValue({});
-    HttpStoreProduct.prototype.getAllProducts = jest
-      .fn()
-      .mockResolvedValue([{}]);
-    useDispatchMock.mockImplementation(mockDispatch);
+
+    useDispatchMock.mockImplementation(() => mockDispatch);
   });
   describe("When i render the component", () => {
     test("Then it should be rendered", () => {
@@ -40,14 +41,15 @@ describe("Given the component Form", () => {
   });
 
   describe("When i press the button submit", () => {
-    test("Then it should been called the function", () => {
-      render(
-        <Provider store={store}>
-          <Form />
-        </Provider>,
-        { preloadedState, store }
-      );
-      userEvent.click(screen.getByText(/crear/i));
+    test("Then it should been called the function", async () => {
+      render(<Form />, { preloadedState, store });
+
+      const addButton = screen.getByRole("button");
+
+      fireEvent.click(addButton);
+      expect(useDispatch).toHaveBeenCalled();
+      expect(HttpStoreProduct.prototype.addProduct).toHaveBeenCalled();
+      expect(await mockDispatch).toHaveBeenCalled();
     });
   });
 });
