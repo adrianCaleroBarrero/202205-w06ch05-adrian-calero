@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react";
-import { CardShoe } from "./card.shoe";
+import { CardTshirt } from "./card.tshirt";
 
 describe("Given the component CardShoe", () => {
   const mockProduct = {
-    type: "zapatillas",
-    name: "deportiva",
+    type: "camisetas",
+    name: "oversize",
     brand: "nike",
     price: 150,
     detail: "test",
@@ -13,25 +13,25 @@ describe("Given the component CardShoe", () => {
   };
   describe("When i render ", () => {
     test("Then it should be rendered", () => {
-      render(<CardShoe prod={mockProduct} />);
+      render(<CardTshirt prod={mockProduct} />);
 
-      expect(screen.getByText(/deportiva/i)).toBeInTheDocument();
+      expect(screen.getByText(/oversize/i)).toBeInTheDocument();
     });
   });
 
   describe("When i render other type ", () => {
     test("Then it should don't be rendered", () => {
-      const wrongMockProduct = { ...mockProduct, type: "camisetas" };
-      render(<CardShoe prod={wrongMockProduct} />);
+      const wrongMockProduct = { ...mockProduct, type: "zapatillas" };
+      render(<CardTshirt prod={wrongMockProduct} />);
 
-      expect(screen.queryByText(/deportiva/i)).not.toBeInTheDocument();
+      expect(screen.queryByText(/oversize/i)).not.toBeInTheDocument();
     });
   });
 
   describe("When i render with discount ", () => {
     test("Then it should be rendered the icon", () => {
       const discountMockProduct = { ...mockProduct, discount: true };
-      render(<CardShoe prod={discountMockProduct} />);
+      render(<CardTshirt prod={discountMockProduct} />);
 
       expect(screen.getByText(/🎗️/i)).toBeInTheDocument();
     });
